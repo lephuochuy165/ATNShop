@@ -28,7 +28,7 @@ var atob = require('atob');
 /// ------------------ CONFIG
 var configHeader = require("./configs/config_Header");
 var configDB = require("./configs/config_DB");
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5000;
 var urldb = configDB.clouddb.urldb;
 
 const connectToMongo = async () => {
@@ -107,6 +107,17 @@ function homePage(req, res) {
 
 /// ..................................................
 app.get('/chatting', chattingPage);
+/*************  ✨ Codeium Command ⭐  *************/
+/**
+ * Renders the chatting page allowing users to send and view messages.
+ * If the user is logged in and a message is provided in the query, 
+ * it adds the message to the chatting log and displays it on the page.
+ * If the user is not logged in, redirects to the login page.
+ *
+ * @param {Object} req - The HTTP request object.
+ * @param {Object} res - The HTTP response object.
+ */
+/******  42ec307b-18d5-4410-b1d2-92df3ec8a3b3  *******/
 function chattingPage(req, res) {
     var xcontent = "";
     
@@ -397,8 +408,7 @@ function qrPage(req, res) {
 
 
 var server = app.listen( PORT , function () {
-   var host = server.address().address
    var port = server.address().port
    
-   console.log("SERVER http://%s:%s", host, port)
+   console.log("SERVER http://localhost:%s", port)
 });
